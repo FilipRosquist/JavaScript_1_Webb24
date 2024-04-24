@@ -1,29 +1,25 @@
-const txt1 = " Skärmskydd , 499";
-const txt2 = "Mobiltelefon, 299, ";
-const txt3 = " Telefonfodral, 89, ";
-const txt4 = " Laptop, 799";
-const txt5 = " Hörlurar , 199 ";
+let dishes = [];
 
-function extractProductAndPrice(txt) {
-    const parts = txt.split(",");
-
-    const productName = parts[0].trim().toUpperCase();
-    const price = parseInt(parts[1]); 
-    if (productName.includes("TELEFON")) {
-        console.log(productName);
-    }
-
-    return { productName, price };
+function addDish(name) {
+    dishes.push(name);
+    console.log(name + " has been added to the list of dishes.");
 }
 
-const product1 = extractProductAndPrice(txt1.replace(",", " -"));
-const product2 = extractProductAndPrice(txt2.replace(",", " -"));
-const product3 = extractProductAndPrice(txt3.replace(",", " -"));
-const product4 = extractProductAndPrice(txt4.replace(",", " -"));
-const product5 = extractProductAndPrice(txt5.replace(",", " -"));
+function countDishes() {
+    return dishes.length;
+}
 
-console.log("Product 1:", product1);
-console.log("Product 2:", product2);
-console.log("Product 3:", product3);
-console.log("Product 4:", product4);
-console.log("Product 5:", product5);
+function showDishes() {
+    console.log("List of added dishes:");
+    for (let i = 0; i < dishes.length; i++) {
+        console.log((i + 1) + ". " + dishes[i]);
+    }
+}
+
+addDish("Kebab");
+addDish("Burger");
+addDish("Pasta");
+
+console.log("Number of added dishes:", countDishes());
+
+showDishes();
